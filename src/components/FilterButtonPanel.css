@@ -1,0 +1,130 @@
+/*
+SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+SPDX-License-Identifier: MIT
+*/
+
+.filter-button-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  position: relative;
+}
+
+.filter-header {
+  margin: 0 0 12px 0;
+}
+
+.filter-header h4 {
+  margin: 0;
+  color: #0078d4;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 2px solid #0078d4;
+  background: white;
+  color: #0078d4;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.filter-btn:hover:not(:disabled) {
+  background: #0078d4;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.3);
+}
+
+.filter-btn.active {
+  background: #0078d4;
+  color: white;
+  font-weight: 600;
+}
+
+.filter-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.filter-btn.clear-btn {
+  border-color: #d13438;
+  color: #d13438;
+  margin-left: auto;
+}
+
+.filter-btn.clear-btn:hover:not(:disabled) {
+  background: #d13438;
+  color: white;
+}
+
+.filter-message {
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.filter-message.success {
+  background: #d0f0d0;
+  color: #107c10;
+  border-left: 4px solid #107c10;
+}
+
+.filter-message.error {
+  background: #fed9cc;
+  color: #d83b01;
+  border-left: 4px solid #d83b01;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .filter-button-panel {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .filter-buttons {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-width: 70px;
+  }
+
+  .filter-btn.clear-btn {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 8px;
+  }
+}
